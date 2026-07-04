@@ -1,7 +1,10 @@
 import Navbar from "../components/Navbar";
 import heroPoster from "../assets/hero-poster.jpg";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 const Home = () => {
+  useDocumentTitle("Securify | Data Protection Platform for SaaS Startups");
+
   return (
     <section className="relative h-screen w-full overflow-hidden bg-red-500">
       {/* vidéo de fond — z-0 explicite pour clarté */}
@@ -20,16 +23,19 @@ const Home = () => {
 
       {/* contenu au premier plan — z-10 au-dessus de la vidéo */}
       <div className="relative z-10 h-full w-full">
-        {/* trois mots géants décalés */}
-        <h1 className="hero-title absolute text-white font-medium text-[14vw] md:text-[13vw] left-4 md:left-10 top-[18%]">
+        {/* titre sémantique unique pour le SEO/l'accessibilité — le rendu visuel reste les 3 mots décalés ci-dessous */}
+        <h1 className="sr-only">Protect your data</h1>
+
+        {/* trois mots géants décalés (présentation uniquement, retirés de l'arbre d'accessibilité) */}
+        <div aria-hidden="true" className="hero-title absolute text-white font-medium text-[14vw] md:text-[13vw] left-4 md:left-10 top-[18%]">
           protect
-        </h1>
-        <h1 className="hero-title absolute text-white font-medium text-[14vw] md:text-[13vw] right-4 md:right-10 top-[38%]">
+        </div>
+        <div aria-hidden="true" className="hero-title absolute text-white font-medium text-[14vw] md:text-[13vw] right-4 md:right-10 top-[38%]">
           your
-        </h1>
-        <h1 className="hero-title absolute text-white font-medium text-[14vw] md:text-[13vw] left-[18%] md:left-[28%] top-[58%]">
+        </div>
+        <div aria-hidden="true" className="hero-title absolute text-white font-medium text-[14vw] md:text-[13vw] left-[18%] md:left-[28%] top-[58%]">
           data
-        </h1>
+        </div>
 
         {/* paragraphe descriptif */}
         <p className="absolute left-6 md:left-10 top-[46%] max-w-[240px] text-[15px] leading-snug text-white/90">

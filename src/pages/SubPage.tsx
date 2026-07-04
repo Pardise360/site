@@ -1,11 +1,15 @@
 import Navbar from "../components/Navbar";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 type SubPageProps = {
   title: string;
   description: string;
+  pageTitle: string;
 };
 
-const SubPage = ({ title, description }: SubPageProps) => {
+const SubPage = ({ title, description, pageTitle }: SubPageProps) => {
+  useDocumentTitle(pageTitle);
+
   return (
     <section className="relative min-h-screen w-full bg-black">
       <Navbar />
